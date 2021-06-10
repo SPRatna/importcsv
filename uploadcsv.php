@@ -19,23 +19,26 @@
 	  </div>     
 	</div>
 	<div class="container">
-     <form action="<?php echo site_url();?>index.php/admin/csv/uploadData" method="post" enctype="multipart/form-data" name="form1" id="form1"> 
-        <table>
-            <tr>
-                <td> Choose your file: </td>
-                <td>
-                    <input type="file" class="form-control" name="userfile" id="userfile"  align="center"/>
-                </td>
-                <td>
-                    <div class="col-lg-offset-3 col-lg-9">
-                        <button type="submit" name="submit" class="btn btn-info">Save</button>
-                    </div>
-                </td>
-            </tr>
-        </table> 
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-6 col-12">
+     <form action="<?php echo site_url();?>index.php/admin/csv/uploadData" method="post" enctype="multipart/form-data" name="form1" id="form1">
+        <div class="form-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input"  name="userfile" id="userfile">
+                <label class="custom-file-label" for="userfile">Choose file</label>
+            </div> 
+        </div>
+        <div class="form-group">
+           <button type="submit" name="submit" class="btn btn-info">Import CSV File</button> 
+        </div>
     </form>   
-    </div>
-   
+    </div></div></div>
+    <script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
 </script>
 </body>
 </html>
